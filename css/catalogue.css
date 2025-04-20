@@ -1,0 +1,1084 @@
+:root {
+    --color-primary: #000000;
+    --color-primary-hover: #333333;
+    --color-gray-50: #ffffff;
+    --color-gray-100: #f5f5f5;
+    --color-gray-200: #e0e0e0;
+    --color-gray-300: #cccccc;
+    --color-gray-500: #666666;
+    --color-gray-700: #333333;
+    --color-gray-900: #000000;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding-top: 6rem;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.title h1 {
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: var(--color-gray-900);
+}
+
+.title p {
+    margin-top: 0.5rem;
+    color: var(--color-gray-500);
+}
+
+.search-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@media (min-width: 640px) {
+    .search-filters {
+        flex-direction: row;
+        width: auto;
+    }
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+@media (min-width: 640px) {
+    .search-wrapper {
+        flex: none;
+    }
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--color-gray-50);
+}
+
+.search-wrapper input:focus {
+    border-color: var(--color-gray-300);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-gray-500);
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--color-gray-100);
+    color: var(--color-gray-900);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.filter-button:hover {
+    background: var(--color-gray-200);
+}
+
+.filter-count {
+    background: var(--color-gray-200);
+    color: var(--color-gray-900);
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.filters {
+    background: var(--color-gray-100);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease forwards;
+    box-shadow: none;
+}
+
+.filters.hidden {
+    display: none;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.filters-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.close-filters-button {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--color-gray-700);
+    transition: color 0.3s ease;
+}
+
+.close-filters-button:hover {
+    color: var(--color-gray-900);
+}
+
+.filters-header h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-gray-900);
+    letter-spacing: 1px;
+}
+
+.reset-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--color-gray-500);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+}
+
+.reset-button:hover {
+    color: var(--color-gray-900);
+}
+
+.reset-button.hidden {
+    display: none;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--color-gray-50);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: var(--color-gray-700);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.filter-group select {
+    padding: 0.8rem;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 4px;
+    background: var(--color-gray-50);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: var(--color-gray-900);
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    border-color: var(--color-gray-300);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group select:hover {
+    border-color: var(--color-gray-300);
+}
+
+/* Mise à jour du style des options */
+.filter-group select option {
+    padding: 0.8rem;
+    background: var(--color-gray-50);
+    color: var(--color-gray-900);
+}
+
+.watches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.watch-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.watch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.watch-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+}
+
+.watch-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.watch-card:hover .watch-image img {
+    transform: scale(1.05);
+}
+
+.watch-info {
+    padding: 20px;
+}
+
+.watch-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: #1a1a1a;
+}
+
+.watch-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.watch-meta .separator {
+    color: #ddd;
+}
+
+.watch-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #333;
+}
+
+.watch-delivery {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+    color: #4CAF50;
+    font-size: 14px;
+}
+
+.watch-delivery i {
+    font-size: 16px;
+}
+
+.discover-button {
+    padding: 0.5rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-gray-50);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.discover-button:hover {
+    background: var(--color-primary-hover);
+}
+
+#results-count {
+    text-align: center;
+    color: var(--color-gray-500);
+    margin-top: 2rem;
+    font-size: 0.875rem;
+}
+
+/* Catalogue Container */
+.catalogue-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Filters Styles */
+.filters {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.filters h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #000;
+}
+
+.filter-section {
+    margin-bottom: 25px;
+}
+
+.filter-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+/* Filter Options */
+.filter-option {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.filter-option label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Products Section */
+.products-section {
+    padding: 0 10px;
+}
+
+.products-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #000;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Product Card */
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: relative;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+
+.product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* Color Options */
+.color-options {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color-dot:hover {
+    transform: scale(1.2);
+}
+
+.color-dot.green { background-color: #4CAF50; }
+.color-dot.orange { background-color: #FF9800; }
+.color-dot.grey { background-color: #9E9E9E; }
+.color-dot.black { background-color: #000000; }
+.color-dot.blue { background-color: #2196F3; }
+.color-dot.red { background-color: #F44336; }
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .watches-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .catalogue-hero {
+        height: 50vh;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .search-filters {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .filter-button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem;
+    }
+
+    .filters {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        margin: 0;
+        border-radius: 0;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .filter-group {
+        padding: 0.8rem;
+    }
+
+    .filter-group select {
+        padding: 0.6rem;
+    }
+
+    .watch-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .watch-info {
+        padding: 1.2rem;
+    }
+
+    .watch-name {
+        font-size: 1.1rem;
+    }
+
+    .watch-price {
+        font-size: 1.3rem;
+    }
+
+    .close-filters-button {
+        display: block;
+    }
+
+    .filters-header-buttons {
+        gap: 0.5rem;
+    }
+
+    .watch-info h3 {
+        font-size: 16px;
+    }
+
+    .watch-meta {
+        font-size: 13px;
+    }
+
+    .watch-price {
+        font-size: 18px;
+    }
+
+    .watch-delivery {
+        font-size: 13px;
+    }
+
+    .btn-primary {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .catalogue-hero {
+        height: 40vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+
+    .filters-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .filters-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .filter-group {
+        padding: 0.6rem;
+    }
+
+    .filter-group label {
+        font-size: 0.8rem;
+    }
+
+    .filter-group select {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .search-wrapper input {
+        padding: 0.6rem 0.6rem 0.6rem 2.5rem;
+        font-size: 0.9rem;
+    }
+
+    .search-icon {
+        left: 0.8rem;
+        width: 16px;
+        height: 16px;
+    }
+
+    .watch-card {
+        margin: 0;
+    }
+
+    .watch-info {
+        padding: 1rem;
+    }
+
+    .watch-name {
+        font-size: 1rem;
+    }
+
+    .watch-details {
+        font-size: 0.8rem;
+    }
+
+    .watch-price {
+        font-size: 1.2rem;
+    }
+
+    .discover-button {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .filters-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .watch-card {
+        box-shadow: none;
+        border: 1px solid var(--color-gray-200);
+    }
+
+    .results-count {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .catalogue-hero {
+        height: 80vh;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .watches-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .hero-content {
+        max-width: 1000px;
+    }
+}
+
+@media (hover: none) {
+    .watch-card:hover {
+        transform: none;
+    }
+
+    .discover-button:hover {
+        background: var(--color-primary);
+    }
+
+    .filter-button:hover {
+        background: var(--color-gray-100);
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .search-icon {
+        transform: translateY(-50%) scale(0.9);
+    }
+}
+
+/* Hide products when filtered out */
+.product-card.hidden {
+    display: none;
+}
+
+/* Hero Section */
+.catalogue-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/catalogue-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-gray-50);
+    margin-bottom: 4rem;
+    animation: fadeIn 1s ease forwards;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+/* Results Count */
+.results-count {
+    text-align: center;
+    color: var(--color-gray-500);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Animations */
+[data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Navigation Mobile */
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 1rem;
+    }
+
+    .nav-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--color-gray-50);
+        flex-direction: column;
+        padding: 2rem;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-right.active {
+        right: 0;
+    }
+
+    .nav-link {
+        padding: 1rem 0;
+        font-size: 1.2rem;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Filtres Mobile */
+@media (max-width: 768px) {
+    .search-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        max-width: none;
+    }
+
+    .filter-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .filters {
+        padding: 1rem;
+    }
+
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Grille des montres */
+@media (max-width: 768px) {
+    .watches-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .watches-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hero Section */
+@media (max-width: 768px) {
+    .catalogue-hero {
+        height: 40vh;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+}
+
+/* Améliorations générales */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .watch-card {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+
+    .watch-info {
+        padding: 1rem;
+    }
+
+    .watch-name {
+        font-size: 1.1rem;
+    }
+
+    .watch-price {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ajout d'une animation pour l'ouverture/fermeture des filtres */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.filters {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.filters.hidden {
+    animation: slideIn 0.3s ease reverse forwards;
+} 
