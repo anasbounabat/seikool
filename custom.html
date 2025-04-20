@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurateur ModTime - Personnalisez votre montre</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html" class="logo">SEIKO</a>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">ACCUEIL</a>
+            <a href="catalogue.html" class="nav-link">CATALOGUE</a>
+            <a href="custom.html" class="nav-link active">PERSONNALISATION</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+        </div>
+    </nav>
+
+    <!-- Configurateur Modus -->
+    <div class="configurator-section">
+        <div id="mczrLoader" style="text-align: center;">
+            <iframe 
+                id="mczrProductIframe" 
+                style="border: none" 
+                src="https://modus.gokickflip.com/customize/startingpoint/676d6ee170bd613a88815c86?shopid=6787b5267814286a7136eea9&amp;lang=fr&amp;country=FR&amp;currency=EUR&amp;rate=1.0&amp;storeProductUrl=https%3A%2F%2Fmodus-seiko.fr%2Fproducts%2Fvotre-seiko-mod%3FdesignId%3D<designId>%26token%3D<token>" 
+                width="100%" 
+                height="800px" 
+                allow="clipboard-write">
+            </iframe>
+        </div>
+        
+        <!-- Bouton de partage flottant -->
+        <button id="shareConfigBtn" class="share-config-btn" onclick="shareConfiguration()">
+            <i class="fab fa-whatsapp"></i> Partager ma configuration
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SEIKO</h3>
+                    <p>L'excellence horlogère depuis 1881</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Collections</h4>
+                        <ul>
+                            <li><a href="#">Montres Automatiques</a></li>
+                            <li><a href="#">Éditions Limitées</a></li>
+                            <li><a href="#">Nouveautés</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Personnalisation</a></li>
+                            <li><a href="#">Entretien</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 rue de la ville, 75000 Paris</li>
+                            <li><i class="fas fa-phone"></i> 01 23 45 67 89</li>
+                            <li><i class="fas fa-envelope"></i> contact@seiko-custom.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seiko Custom. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Écouter les messages de l'iframe
+        window.addEventListener('message', function(event) {
+            // Vérifier que le message vient de Kickflip
+            if (event.origin === 'https://modus.gokickflip.com') {
+                const data = event.data;
+                // Si c'est un événement de sauvegarde de configuration
+                if (data.type === 'configuration_saved') {
+                    // Activer le bouton de partage
+                    document.getElementById('shareConfigBtn').classList.add('active');
+                }
+            }
+        });
+
+        function shareConfiguration() {
+            // Récupérer l'URL actuelle avec les paramètres de configuration
+            const currentUrl = document.getElementById('mczrProductIframe').contentWindow.location.href;
+            
+            // Créer le message pour WhatsApp
+            const message = `Bonjour, j'ai personnalisé cette montre et j'aimerais la commander. Voici ma configuration :\n${currentUrl}`;
+            
+            // Ouvrir WhatsApp avec le message
+            window.open(`https://wa.me/33612345678?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

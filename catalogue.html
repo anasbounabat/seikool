@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - ModTime</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/catalogue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html" class="logo">SEIKO</a>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">ACCUEIL</a>
+            <a href="catalogue.html" class="nav-link active">CATALOGUE</a>
+            <a href="custom.html" class="nav-link">PERSONNALISATION</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="catalogue-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Notre Collection Exclusive</h1>
+            <p>Découvrez l'art de l'horlogerie japonaise à travers nos montres d'exception</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="search-filters" data-aos="fade-up">
+                <div class="search-wrapper">
+                    <input type="text" id="search" placeholder="Rechercher une montre..." />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </div>
+
+                <button id="filter-toggle" class="filter-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="21" x2="4" y2="14" />
+                        <line x1="4" y1="10" x2="4" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12" y2="3" />
+                        <line x1="20" y1="21" x2="20" y2="16" />
+                        <line x1="20" y1="12" x2="20" y2="3" />
+                        <line x1="1" y1="14" x2="7" y2="14" />
+                        <line x1="9" y1="8" x2="15" y2="8" />
+                        <line x1="17" y1="16" x2="23" y2="16" />
+                    </svg>
+                    Filtres
+                    <span id="filter-count" class="filter-count hidden">0</span>
+                </button>
+            </div>
+
+            <div id="filters" class="filters hidden" data-aos="fade-up">
+                <div class="filters-header">
+                    <h3>Filtres</h3>
+                    <div class="filters-header-buttons">
+                        <button id="reset-filters" class="reset-button hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                            Réinitialiser
+                        </button>
+                        <button id="close-filters" class="close-filters-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="category">Catégorie</label>
+                        <select id="category">
+                            <option value="">Toutes les catégories</option>
+                            <option value="luxe">Luxe</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="style">Style</label>
+                        <select id="style">
+                            <option value="">Tous les styles</option>
+                            <option value="classique">Classique</option>
+                            <option value="sport">Sport</option>
+                            <option value="plongée">Plongée</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="material">Matériau</label>
+                        <select id="material">
+                            <option value="">Tous les matériaux</option>
+                            <option value="acier">Acier</option>
+                            <option value="or">Or</option>
+                            <option value="titane">Titane</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="price-range">Prix</label>
+                        <select id="price-range">
+                            <option value="">Tous les prix</option>
+                            <option value="under30">Moins de 30 000€</option>
+                            <option value="30to50">Entre 30 000€ et 50 000€</option>
+                            <option value="over50">Plus de 50 000€</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="watches-grid" id="watches-grid">
+                <!-- Les montres seront injectées ici via JavaScript -->
+            </div>
+            <p id="results-count" class="results-count"></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SEIKO</h3>
+                    <p>L'excellence horlogère depuis 1881</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Collections</h4>
+                        <ul>
+                            <li><a href="#">Montres Automatiques</a></li>
+                            <li><a href="#">Éditions Limitées</a></li>
+                            <li><a href="#">Nouveautés</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Personnalisation</a></li>
+                            <li><a href="#">Entretien</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 rue de la ville, 75000 Paris</li>
+                            <li><i class="fas fa-phone"></i> 01 23 45 67 89</li>
+                            <li><i class="fas fa-envelope"></i> contact@seiko-custom.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seiko Custom. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./js/stock.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/catalogue.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>
